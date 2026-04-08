@@ -4,7 +4,7 @@ using System.Globalization;
 
 public class Program
 {
-	// static int UserNum;
+	 static int UserNum;
 	public static void Main()
 	{
 		Console.WriteLine("Pick a number 1 through 10");
@@ -15,11 +15,11 @@ public class Program
 				//countdown T-10 seconds
 		Console.WriteLine($"T-{userInput} seconds until ignition");
 			
-		//Console.WriteLine(Countdown(5)); // could i figure out how to make it run all in one go on line 22?
+		Console.WriteLine(Countdown(5)); // could i figure out how to make it run all in one go on line 22?
 		//should only write with success
 		if (UserNum == 0)
 		{
-			Console.WriteLine(Countdown(UserNum).toString() + "obvious" + "Blast off!");
+			Console.WriteLine("Blast off!");
 		} 
 	}
 
