@@ -1,40 +1,41 @@
 ﻿using System;
-using System.Globalization;
 
 public class Program
 {
-	public static string UserInput;
-	public static int UserNum;
 	public static void Main()
 	{
-		Console.WriteLine("Pick a number 1 through 10");
-		//string? userInput = Console.ReadLine();
-		UserInput = Console.ReadLine();
-		//if (int.TryParse(userInput, out int UserNum));
-		int UserNum = int.Parse(UserInput);
-				//countdown T-10 seconds
-		Console.WriteLine($"T-{UserInput} seconds until ignition");
-		Console.WriteLine(Countdown(UserInput));
+		int userNum = 0;
 
+		while (true)
+		{
+			Console.WriteLine("Pick a number 1 through 10");
+			string? userInput = Console.ReadLine(); //here we catch the null
+			bool isValid = int.TryParse(userInput, out userNum);
+			bool isNegative = userNum < 0;
+
+			if (!isValid || isNegative)
+			{// here we tell them to type soemthing thatst not null
+				Console.WriteLine("Please enter a whole number that is more than 0");
+				continue;
+			}
+
+			break;
+		}
+		Console.Clear();
+		Console.WriteLine($"T-{userNum} seconds until ignition");
+		Countdown(userNum);
 		Console.WriteLine("Blast off!");
 	}
 
-	public static int Countdown()
+	public static void Countdown(int number)
 	{
-		//int UserNum = int.Parse(userInput);
-		if(Usernum <= 0)
-		{
-			return 0;
-		}
-		else
-		{
-			//if (int.TryParse(Program.UserInput, out int UserNum));
+		Console.WriteLine(number);
 
-			//the return and multiply the number by the method is not
-			// essential, this is just a use case 
-			//  return number * FactorialSolver(number - 1);
-		//whats needed here is subtraction only
-		return Countdown(UserNum - 1);
+		if (number == 0)
+		{
+			return;
 		}
+
+		Countdown(number - 1);
 	}
-}//end of whole public class program
+}
